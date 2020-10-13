@@ -241,6 +241,9 @@ namespace MegaDesk_2._0_TeamCumorah
 
             //write to the quotes.json file
             MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial), totalQuote);
+
+            // Disable the submit button to avoid double submission
+            btnAddNewQuote.Enabled = false;
         }
     }
 }
