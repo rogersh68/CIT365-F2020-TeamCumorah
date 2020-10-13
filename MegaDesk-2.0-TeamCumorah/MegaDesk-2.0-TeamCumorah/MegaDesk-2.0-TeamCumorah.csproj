@@ -71,6 +71,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quote.cs" />
+    <Compile Include="QuotesList.cs" />
     <Compile Include="SearchQuotes.cs">
       <SubType>Form</SubType>
     </Compile>

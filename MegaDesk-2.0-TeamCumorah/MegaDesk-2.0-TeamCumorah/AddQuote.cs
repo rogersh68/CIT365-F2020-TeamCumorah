@@ -235,6 +235,9 @@ namespace MegaDesk_2._0_TeamCumorah
             materialCost.Text = deskQuote.calcMaterial().ToString() + ".00";
             shipCost.Text = deskQuote.calcShippingCost().ToString() + ".00";
             totalCost.Text = deskQuote.calcQuote().ToString() + ".00";
+
+            //write to the quotes.json file
+            MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial));
         }
     }
 }
