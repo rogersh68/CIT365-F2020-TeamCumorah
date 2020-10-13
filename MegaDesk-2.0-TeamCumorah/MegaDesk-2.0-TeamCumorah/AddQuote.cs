@@ -223,6 +223,7 @@ namespace MegaDesk_2._0_TeamCumorah
             deskDrawer = int.Parse(drawerCount.Text);
             deskMaterial = (Desk.DesktopMaterial)surfaceMaterial.SelectedValue;
             rushDays = int.Parse(((KeyValuePair<string, string>)rushOrder.SelectedItem).Key);
+            _customerName = customerName.Text;
 
             // Call DeskQuote Class with parameters
             DeskQuote deskQuote = new DeskQuote(_customerName, rushDays, DateTime.Now, deskWidth, deskDepth, deskDrawer, deskMaterial);
