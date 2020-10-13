@@ -16,13 +16,14 @@ namespace MegaDesk_2._0_TeamCumorah
         public int deskDepth { get; set; }
         public int deskDrawer { get; set; }
         public string deskMaterial { get; set; }
+        public int totalQuote { get; set; }
 
         public Quote()
         {
 
         }
         //Quote constructor
-        public Quote(string _customerName, int rushDays, string date, int deskWidth, int deskDepth, int deskDrawer, string deskMaterial)
+        public Quote(string _customerName, int rushDays, string date, int deskWidth, int deskDepth, int deskDrawer, string deskMaterial, int totalQuote)
         {
             this._customerName = _customerName;
             this.rushDays = rushDays;
@@ -31,6 +32,7 @@ namespace MegaDesk_2._0_TeamCumorah
             this.deskDepth = deskDepth;
             this.deskDrawer = deskDrawer;
             this.deskMaterial = deskMaterial;
+            this.totalQuote = totalQuote;
 
         }
     }

@@ -15,6 +15,7 @@ namespace MegaDesk_2._0_TeamCumorah
         int deskDepth = 0;
         int deskDrawer = 0;
         int rushDays = 0;
+        int totalQuote = 0;
         Desk.DesktopMaterial deskMaterial;
         string _customerName = string.Empty;
         
@@ -236,9 +237,10 @@ namespace MegaDesk_2._0_TeamCumorah
             materialCost.Text = deskQuote.calcMaterial().ToString() + ".00";
             shipCost.Text = deskQuote.calcShippingCost().ToString() + ".00";
             totalCost.Text = deskQuote.calcQuote().ToString() + ".00";
+            totalQuote = deskQuote.calcQuote();
 
             //write to the quotes.json file
-            MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial));
+            MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial), totalQuote);
         }
     }
 }

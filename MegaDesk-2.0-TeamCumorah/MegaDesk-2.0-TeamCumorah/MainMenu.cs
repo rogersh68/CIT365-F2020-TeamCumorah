@@ -95,13 +95,13 @@ namespace MegaDesk_2._0_TeamCumorah
 
         /*********************************
         * void write
-        * takes a string (_customerName), int (rushDays), string (date), int (deskWidth), int (deskDepth), int(deskDrawer), and string (deskMaterial) as parameters
+        * takes a string (_customerName), int (rushDays), string (date), int (deskWidth), int (deskDepth), int(deskDrawer), string (deskMaterial) and int (totalQuote) as parameters
         * writes the full, updated object list to the quotes.json file
         * ******************************/
-        public static void write(string _customerName, int rushDays, string date, int deskWidth, int deskDepth, int deskDrawer, string deskMaterial)
+        public static void write(string _customerName, int rushDays, string date, int deskWidth, int deskDepth, int deskDrawer, string deskMaterial, int totalQuote)
         {
             //creates a new Quote with the parameters provided
-            Quote quote = new Quote(_customerName, rushDays, date, deskWidth, deskDepth, deskDrawer, deskMaterial);
+            Quote quote = new Quote(_customerName, rushDays, date, deskWidth, deskDepth, deskDrawer, deskMaterial, totalQuote);
             //add the new Quote to the List of Quotes in QuotesList
             QuotesList.quotes.Add(quote);
             //Convert the List to json
