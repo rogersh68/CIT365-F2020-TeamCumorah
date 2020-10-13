@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace MegaDesk_2._0_TeamCumorah
 {    
@@ -15,6 +16,7 @@ namespace MegaDesk_2._0_TeamCumorah
         private const int PRICE_PER_DRAWER = 50;
         private const int PRICE_PER_AREA = 1;
         private const int RUSH_MAX_THRESHOLD = 2000;
+        private const string RUSHORDERPRICES = @"data/rushOrderPrices.txt";
         #endregion
 
         // DesQuote constructor
@@ -107,6 +109,24 @@ namespace MegaDesk_2._0_TeamCumorah
         }
 
         /// <summary>
+        /// Dynamically populate the price of rush hour instead of harcoding the amount
+        /// </summary>
+        /// <returns>Rush hour order amount</returns>
+        public int[,] GetRushOrder()
+        {
+            string[] textContent = File.ReadAllLines(RUSHORDERPRICES);
+            int[,] orderPrices = new int[3, 3];
+            for (int x = 0; x < 3; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    orderPrices[x, y] = Int32.Parse(textContent[(x * 3) + y]);
+                }
+            }
+            return orderPrices;
+        }
+
+        /// <summary>
         /// Calculates the amount to be paid for shipping
         /// </summary>
         /// <returns>The amount to be paid for shipping</returns>
@@ -119,43 +139,43 @@ namespace MegaDesk_2._0_TeamCumorah
                 case 3:
                     if (calcArea() < DESK_SURFACE_AREA_THRESHOLD)
                     {
-                        costOfShipping = 60;
+                        costOfShipping = GetRushOrder()[0, 0]; // 60;
                     }
                     else if (calcArea() >= DESK_SURFACE_AREA_THRESHOLD && calcArea() <= RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 70;
+                        costOfShipping = GetRushOrder()[0, 1]; // 70;
                     }
                     else if (calcArea() > RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 80;
+                        costOfShipping = GetRushOrder()[0, 2]; // 80;
                     }
                     break;
                 case 5:
                     if (calcArea() < DESK_SURFACE_AREA_THRESHOLD)
                     {
-                        costOfShipping = 40;
+                        costOfShipping = GetRushOrder()[1, 0]; // 40;
                     }
                     else if (calcArea() >= DESK_SURFACE_AREA_THRESHOLD && calcArea() <= RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 50;
+                        costOfShipping = GetRushOrder()[1, 1]; // 50;
                     }
                     else if (calcArea() > RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 60;
+                        costOfShipping = GetRushOrder()[1, 2]; // 60;
                     }
                     break;
                 case 7:
                     if (calcArea() < DESK_SURFACE_AREA_THRESHOLD)
                     {
-                        costOfShipping = 30;
+                        costOfShipping = GetRushOrder()[2, 0]; // 30;
                     }
                     else if (calcArea() >= DESK_SURFACE_AREA_THRESHOLD && calcArea() <= RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 35;
+                        costOfShipping = GetRushOrder()[2, 1]; // 35;
                     }
                     else if (calcArea() > RUSH_MAX_THRESHOLD)
                     {
-                        costOfShipping = 40;
+                        costOfShipping = GetRushOrder()[2, 2]; // 40;
                     }
                     break;
                 
