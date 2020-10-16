@@ -37,58 +37,51 @@ namespace MegaDesk_2._0_TeamCumorah
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            // Clear the ListView and its contents
             lvQuoteList.Clear(); 
             lvQuoteList.Items.Clear();
+
+            // Change the View of the ListView
             lvQuoteList.View = View.Details;
 
             try
             { 
+                // Get the text value of the Materials combobox
+                string deskMaterials = cbMaterials.SelectedItem.ToString();
 
-            string deskMaterials = cbMaterials.SelectedItem.ToString();
+                // Create ListView Columns and Column properties
+                lvQuoteList.Columns.Add("#", 30, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Client Name", 180, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Date", 170, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Width", 70, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Depth", 70, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Drawers", 70, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Material", 100, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Rush Days", 120, HorizontalAlignment.Left);
+                lvQuoteList.Columns.Add("Total Amount", 150, HorizontalAlignment.Left);
 
-            lvQuoteList.Columns.Add("#", 30, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Client Name", 200, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Date", 180, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Width", 70, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Depth", 70, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Drawers", 70, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Material", 100, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Rush Days", 70, HorizontalAlignment.Left);
-            lvQuoteList.Columns.Add("Total Amount", 150, HorizontalAlignment.Left);
-
-            string dir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            dir = dir.Remove(dir.IndexOf("\\bin\\Debug"));
-            //reads in the file
-            using (StreamReader r = new StreamReader(dir + @"\quotes.json"))
-            {
+                // Add a row counter
                 int rowCount = 0;
 
-                    while (!r.EndOfStream)
+                foreach (Quote quote in QuotesList.quotes)
+                {
+                    if (quote.deskMaterial == deskMaterials)
                     {
-                        //read
-                        string json = r.ReadToEnd();
-                        //parse json into a List of Quotes within QuotesList
-                        List<Quote> quotes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Quote>>(json);
-
-                        foreach (Quote quote in quotes)
+                        // Increment the row counter
+                        rowCount++;
+                        // Add ListView Items
+                        lvQuoteList.Items.Add(new ListViewItem(new[]
                         {
-                            if (quote.deskMaterial == deskMaterials)
-                            {
-                                rowCount++;
-                                lvQuoteList.Items.Add(new ListViewItem(new[]
-                                {
-                                    rowCount.ToString(),
-                                    quote._customerName,
-                                    quote.date,
-                                    quote.deskWidth.ToString(),
-                                    quote.deskDepth.ToString(),
-                                    quote.deskDrawer.ToString(),
-                                    quote.deskMaterial,
-                                    quote.rushDays.ToString(),
-                                    quote.totalQuote.ToString("C2")
-                                })); 
-                            }
-                        }
+                            rowCount.ToString(),
+                            quote._customerName,
+                            quote.date,
+                            quote.deskWidth.ToString(),
+                            quote.deskDepth.ToString(),
+                            quote.deskDrawer.ToString(),
+                            quote.deskMaterial,
+                            quote.rushDays.ToString(),
+                            quote.totalQuote.ToString("C2")
+                        }));
                     }
                 }
             }

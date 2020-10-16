@@ -41,7 +41,7 @@ namespace MegaDesk_2._0_TeamCumorah
         {
             foreach (Quote q in QuotesList.quotes)
             {
-                string[] row = { q._customerName, q.date, q.deskMaterial, q.rushDays.ToString(), "$" + q.totalQuote.ToString()};
+                string[] row = { q._customerName, q.date, q.deskMaterial, q.rushDays.ToString(), q.totalQuote.ToString("C2")};
                 dgv.Rows.Add(row);
             }
         }

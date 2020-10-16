@@ -67,6 +67,7 @@
             // 
             // lvQuoteList
             // 
+            this.lvQuoteList.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvQuoteList.HideSelection = false;
             this.lvQuoteList.Location = new System.Drawing.Point(12, 57);
             this.lvQuoteList.Name = "lvQuoteList";

@@ -16,7 +16,7 @@ namespace MegaDesk_2._0_TeamCumorah
         private const int PRICE_PER_DRAWER = 50;
         private const int PRICE_PER_AREA = 1;
         private const int RUSH_MAX_THRESHOLD = 2000;
-        private const string RUSHORDERPRICES = @"rushOrderPrices.txt";
+        private const string RUSHORDERPRICES = @"data/rushOrderPrices.txt";
         #endregion
 
         // DesQuote constructor
