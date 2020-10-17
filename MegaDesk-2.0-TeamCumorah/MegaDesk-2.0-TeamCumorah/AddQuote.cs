@@ -245,5 +245,7 @@ namespace MegaDesk_2._0_TeamCumorah
             // Disable the submit button to avoid double submission
             btnAddNewQuote.Enabled = false;
         }
+
+   
     }
 }
