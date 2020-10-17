@@ -47,7 +47,10 @@
             this.lblArea = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.gbShipping = new System.Windows.Forms.GroupBox();
             this.btnAddNewQuote = new System.Windows.Forms.Button();
+            this.gbConfiguration = new System.Windows.Forms.GroupBox();
             this.gbQuote = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.basePrice = new System.Windows.Forms.Label();
@@ -80,16 +83,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.gbShipping = new System.Windows.Forms.GroupBox();
-            this.gbConfiguration = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.gbSize.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.gbQuote.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.gbShipping.SuspendLayout();
             this.gbConfiguration.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.gbQuote.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -324,6 +324,36 @@
             this.panel1.Size = new System.Drawing.Size(1458, 867);
             this.panel1.TabIndex = 9;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel3.Controls.Add(this.gbShipping);
+            this.panel3.Controls.Add(this.btnAddNewQuote);
+            this.panel3.Controls.Add(this.gbConfiguration);
+            this.panel3.Controls.Add(this.gbSize);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.quoteDate);
+            this.panel3.Controls.Add(this.customerName);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(798, 867);
+            this.panel3.TabIndex = 13;
+            // 
+            // gbShipping
+            // 
+            this.gbShipping.Controls.Add(this.rushOrder);
+            this.gbShipping.Controls.Add(this.label6);
+            this.gbShipping.ForeColor = System.Drawing.Color.Lime;
+            this.gbShipping.Location = new System.Drawing.Point(26, 580);
+            this.gbShipping.Margin = new System.Windows.Forms.Padding(6);
+            this.gbShipping.Name = "gbShipping";
+            this.gbShipping.Padding = new System.Windows.Forms.Padding(6);
+            this.gbShipping.Size = new System.Drawing.Size(722, 121);
+            this.gbShipping.TabIndex = 8;
+            this.gbShipping.TabStop = false;
+            this.gbShipping.Text = "Shipping";
+            // 
             // btnAddNewQuote
             // 
             this.btnAddNewQuote.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -338,6 +368,22 @@
             this.btnAddNewQuote.Text = "&Get Quote";
             this.btnAddNewQuote.UseVisualStyleBackColor = false;
             this.btnAddNewQuote.Click += new System.EventHandler(this.btnAddNewQuote_Click);
+            // 
+            // gbConfiguration
+            // 
+            this.gbConfiguration.Controls.Add(this.surfaceMaterial);
+            this.gbConfiguration.Controls.Add(this.label4);
+            this.gbConfiguration.Controls.Add(this.label5);
+            this.gbConfiguration.Controls.Add(this.drawerCount);
+            this.gbConfiguration.ForeColor = System.Drawing.Color.Lime;
+            this.gbConfiguration.Location = new System.Drawing.Point(26, 368);
+            this.gbConfiguration.Margin = new System.Windows.Forms.Padding(6);
+            this.gbConfiguration.Name = "gbConfiguration";
+            this.gbConfiguration.Padding = new System.Windows.Forms.Padding(6);
+            this.gbConfiguration.Size = new System.Drawing.Size(722, 188);
+            this.gbConfiguration.TabIndex = 5;
+            this.gbConfiguration.TabStop = false;
+            this.gbConfiguration.Text = "Configuration";
             // 
             // gbQuote
             // 
@@ -797,52 +843,6 @@
             this.label10.Text = "Cost per in.²";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // gbShipping
-            // 
-            this.gbShipping.Controls.Add(this.rushOrder);
-            this.gbShipping.Controls.Add(this.label6);
-            this.gbShipping.ForeColor = System.Drawing.Color.Lime;
-            this.gbShipping.Location = new System.Drawing.Point(26, 580);
-            this.gbShipping.Margin = new System.Windows.Forms.Padding(6);
-            this.gbShipping.Name = "gbShipping";
-            this.gbShipping.Padding = new System.Windows.Forms.Padding(6);
-            this.gbShipping.Size = new System.Drawing.Size(722, 121);
-            this.gbShipping.TabIndex = 8;
-            this.gbShipping.TabStop = false;
-            this.gbShipping.Text = "Shipping";
-            // 
-            // gbConfiguration
-            // 
-            this.gbConfiguration.Controls.Add(this.surfaceMaterial);
-            this.gbConfiguration.Controls.Add(this.label4);
-            this.gbConfiguration.Controls.Add(this.label5);
-            this.gbConfiguration.Controls.Add(this.drawerCount);
-            this.gbConfiguration.ForeColor = System.Drawing.Color.Lime;
-            this.gbConfiguration.Location = new System.Drawing.Point(26, 368);
-            this.gbConfiguration.Margin = new System.Windows.Forms.Padding(6);
-            this.gbConfiguration.Name = "gbConfiguration";
-            this.gbConfiguration.Padding = new System.Windows.Forms.Padding(6);
-            this.gbConfiguration.Size = new System.Drawing.Size(722, 188);
-            this.gbConfiguration.TabIndex = 5;
-            this.gbConfiguration.TabStop = false;
-            this.gbConfiguration.Text = "Configuration";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.panel3.Controls.Add(this.gbShipping);
-            this.panel3.Controls.Add(this.btnAddNewQuote);
-            this.panel3.Controls.Add(this.gbConfiguration);
-            this.panel3.Controls.Add(this.gbSize);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.quoteDate);
-            this.panel3.Controls.Add(this.customerName);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(798, 867);
-            this.panel3.TabIndex = 13;
-            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -865,13 +865,13 @@
             this.gbSize.ResumeLayout(false);
             this.gbSize.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.gbQuote.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.gbShipping.ResumeLayout(false);
             this.gbConfiguration.ResumeLayout(false);
             this.gbConfiguration.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.gbQuote.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

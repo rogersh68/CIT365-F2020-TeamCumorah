@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchQuotes));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbMaterials = new System.Windows.Forms.ComboBox();
@@ -40,8 +41,8 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClose.Location = new System.Drawing.Point(1647, 34);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnClose.Location = new System.Drawing.Point(1647, 37);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 49);
             this.btnClose.TabIndex = 3;
@@ -57,7 +58,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearch.Location = new System.Drawing.Point(511, 28);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(256, 58);
             this.btnSearch.TabIndex = 2;
@@ -70,7 +71,7 @@
             this.cbMaterials.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaterials.FormattingEnabled = true;
             this.cbMaterials.Location = new System.Drawing.Point(24, 37);
-            this.cbMaterials.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbMaterials.Margin = new System.Windows.Forms.Padding(6);
             this.cbMaterials.Name = "cbMaterials";
             this.cbMaterials.Size = new System.Drawing.Size(454, 45);
             this.cbMaterials.TabIndex = 1;
@@ -79,7 +80,7 @@
             // 
             this.lvQuoteList.HideSelection = false;
             this.lvQuoteList.Location = new System.Drawing.Point(24, 110);
-            this.lvQuoteList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lvQuoteList.Margin = new System.Windows.Forms.Padding(6, 6, 20, 6);
             this.lvQuoteList.Name = "lvQuoteList";
             this.lvQuoteList.Size = new System.Drawing.Size(1836, 729);
             this.lvQuoteList.TabIndex = 4;
@@ -99,7 +100,8 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SearchQuotes";
             this.Text = "SearchQuotes";
             this.Load += new System.EventHandler(this.SearchQuotes_Load);
