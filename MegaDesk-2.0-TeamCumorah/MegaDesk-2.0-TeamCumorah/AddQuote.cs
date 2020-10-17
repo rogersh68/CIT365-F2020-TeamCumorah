@@ -55,6 +55,7 @@ namespace MegaDesk_2._0_TeamCumorah
             quoteDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
             BindMaterial();
             BindRushDays();
+            customerName.Focus();
         }
         
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -218,34 +219,43 @@ namespace MegaDesk_2._0_TeamCumorah
 
         private void btnAddNewQuote_Click(object sender, EventArgs e)
         {
-            // Parse and assign value
-            deskWidth = int.Parse(width.Text);
-            deskDepth = int.Parse(depth.Text);
-            deskDrawer = int.Parse(drawerCount.Text);
-            deskMaterial = (Desk.DesktopMaterial)surfaceMaterial.SelectedValue;
-            rushDays = int.Parse(((KeyValuePair<string, string>)rushOrder.SelectedItem).Key);
-            _customerName = customerName.Text;
+            if (!(customerName.Text == string.Empty))
+            {
+                // Parse and assign value
+                deskWidth = int.Parse(width.Text);
+                deskDepth = int.Parse(depth.Text);
+                deskDrawer = int.Parse(drawerCount.Text);
+                deskMaterial = (Desk.DesktopMaterial)surfaceMaterial.SelectedValue;
+                rushDays = int.Parse(((KeyValuePair<string, string>)rushOrder.SelectedItem).Key);
+                _customerName = customerName.Text;
 
-            // Call DeskQuote Class with parameters
-            DeskQuote deskQuote = new DeskQuote(_customerName, rushDays, DateTime.Now, deskWidth, deskDepth, deskDrawer, deskMaterial);
+                // Call DeskQuote Class with parameters
+                DeskQuote deskQuote = new DeskQuote(_customerName, rushDays, DateTime.Now, deskWidth, deskDepth, deskDrawer, deskMaterial);
 
-            // Assign value to get quote controls
-            lblArea.Text = deskQuote.calcArea().ToString();
-            excessSize.Text = deskQuote.calcSizeOverage().ToString();
-            sizeCost.Text = deskQuote.calcSizeCost().ToString() + ".00";
-            drawerCost.Text = deskQuote.calcDrawer().ToString() + ".00";
-            materialCost.Text = deskQuote.calcMaterial().ToString() + ".00";
-            shipCost.Text = deskQuote.calcShippingCost().ToString() + ".00";
-            totalCost.Text = deskQuote.calcQuote().ToString() + ".00";
-            totalQuote = deskQuote.calcQuote();
+                // Assign value to get quote controls
+                lblArea.Text = deskQuote.calcArea().ToString();
+                excessSize.Text = deskQuote.calcSizeOverage().ToString();
+                sizeCost.Text = deskQuote.calcSizeCost().ToString() + ".00";
+                drawerCost.Text = deskQuote.calcDrawer().ToString() + ".00";
+                materialCost.Text = deskQuote.calcMaterial().ToString() + ".00";
+                shipCost.Text = deskQuote.calcShippingCost().ToString() + ".00";
+                totalCost.Text = deskQuote.calcQuote().ToString() + ".00";
+                totalQuote = deskQuote.calcQuote();
 
-            //write to the quotes.json file
-            MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial), totalQuote);
+                //write to the quotes.json file
+                MainMenu.write(_customerName, rushDays, Convert.ToString(DateTime.Now), deskWidth, deskDepth, deskDrawer, Convert.ToString(deskMaterial), totalQuote);
 
-            // Disable the submit button to avoid double submission
-            btnAddNewQuote.Enabled = false;
+                // Disable the submit button to avoid double submission
+                btnAddNewQuote.Enabled = false;
+            }
+            else
+            {
+                customerName.BackColor = Color.Red;
+                customerName.ForeColor = Color.White;
+                MessageBox.Show("You have not entered a customer's name.");
+                customerName.Focus();
+            }
         }
-
    
     }
 }
