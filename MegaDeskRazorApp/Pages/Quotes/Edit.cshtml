@@ -1,0 +1,65 @@
+﻿@page
+@model MegaDeskRazorApp.Pages.Quotes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Quote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Quote.ID" />
+            <div class="form-group">
+                <label asp-for="Quote.customerName" class="control-label"></label>
+                <input asp-for="Quote.customerName" class="form-control" />
+                <span asp-validation-for="Quote.customerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.quoteDate" class="control-label"></label>
+                <input asp-for="Quote.quoteDate" class="form-control" />
+                <span asp-validation-for="Quote.quoteDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.rushDays" class="control-label"></label>
+                <input asp-for="Quote.rushDays" class="form-control" />
+                <span asp-validation-for="Quote.rushDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.deskWidth" class="control-label"></label>
+                <input asp-for="Quote.deskWidth" class="form-control" />
+                <span asp-validation-for="Quote.deskWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.deskDepth" class="control-label"></label>
+                <input asp-for="Quote.deskDepth" class="form-control" />
+                <span asp-validation-for="Quote.deskDepth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.deskDrawer" class="control-label"></label>
+                <input asp-for="Quote.deskDrawer" class="form-control" />
+                <span asp-validation-for="Quote.deskDrawer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.desktopMaterial" class="control-label"></label>
+                <select asp-for="Quote.desktopMaterial" class="form-control"></select>
+                <span asp-validation-for="Quote.desktopMaterial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
