@@ -47,6 +47,9 @@ namespace MegaDeskRazorApp.Pages.Quotes
                 return Page();
             }
 
+            // update quote amount
+            Quote.calcTotalQuote();
+
             _context.Attach(Quote).State = EntityState.Modified;
 
             try

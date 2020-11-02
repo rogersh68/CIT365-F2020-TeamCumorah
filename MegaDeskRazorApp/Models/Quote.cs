@@ -34,6 +34,7 @@ namespace MegaDeskRazorApp.Models
         public DesktopMaterial desktopMaterial { get; set; }
 
         [Display(Name = "Total Quote")]
+        [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal totalQuote { get; set; }
 
@@ -45,5 +46,61 @@ namespace MegaDeskRazorApp.Models
             Rosewood = 300,
             Veneer = 125
         }
+        public void calcTotalQuote()
+        {
+            int area = deskWidth* deskDepth;
+            int drawerAmount = deskDrawer * 50;
+            int rushAmount = calcRushPrice(area, rushDays);
+
+            totalQuote = 200 + area + drawerAmount + (int)desktopMaterial + rushAmount;
+        }
+        public int calcRushPrice(int area, int rushDays)
+        {
+            switch (rushDays)
+            {
+                case 3:
+                    if(area < 1000)
+                    {
+                        return 60;
+                    }
+                    else if (area > 2000)
+                    {
+                        return 80;
+                    }
+                    else
+                    {
+                        return 70;
+                    }
+                case 5:
+                    if(area < 1000)
+                    {
+                        return 40;
+                    }
+                    else if (area > 2000)
+                    {
+                        return 60;
+                    }
+                    else
+                    {
+                        return 50;
+                    }
+                case 7:
+                    if(area < 1000)
+                    {
+                        return 30;
+                    }
+                    else if (area > 2000)
+                    {
+                        return 40;
+                    }
+                    else
+                    {
+                        return 35;
+                    }
+                default:
+                    return 0;
+            }
+        }
+        
     }
 }

@@ -35,6 +35,9 @@ namespace MegaDeskRazorApp.Pages.Quotes
                 return Page();
             }
 
+            // set the totalquote amount to quote object
+            Quote.calcTotalQuote();
+
             _context.Quote.Add(Quote);
             await _context.SaveChangesAsync();
 
