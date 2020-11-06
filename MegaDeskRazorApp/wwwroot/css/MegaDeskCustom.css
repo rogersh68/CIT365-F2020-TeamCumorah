@@ -1,0 +1,47 @@
+﻿body, .bg-white {
+    background-color: rgba(42, 31, 109, .5) !important;
+    color: white;
+}
+
+h1, table, .col-auto, .nav-link:hover, .btn-primary {
+    color: white !important;
+}
+
+.nav-link {
+    color: rgba(255,255,255,.5) !important;
+}
+
+.navbar-light .navbar-brand, a {
+    color: rgba(135, 211, 144, 1) !important;
+}
+
+.btn-primary {
+    border-color: rgba(135, 211, 144, 1);
+    background-color: rgba(135, 211, 144, 1);
+    color: rgba(72, 61, 139, .5) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    border-color: rgba(72, 61, 139, .5) !important;
+    background-color: rgba(72, 61, 139, .5) !important;
+    color: rgba(135, 211, 144, 1) !important;
+}
+
+.border-bottom {
+    color: rgba(39, 32, 119, .5);
+    box-shadow: 0 .25rem .75rem rgba(255, 255, 255, .05);
+}
+
+tbody tr:hover {
+    background-color: #665ba9 !important;
+}
+
+.container {
+    max-width: 95% !important;
+}
+
+main {
+    border: 1px solid #dee2e6 !important;
+    padding: 2%;
+    background-color: rgba(72, 61, 139, .5) !important;
+}
