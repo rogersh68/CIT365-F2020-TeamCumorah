@@ -45,3 +45,23 @@ main {
     padding: 2%;
     background-color: rgba(72, 61, 139, .5) !important;
 }
+
+select#woodType option[value="Laminate"] {
+    background-image: url(../images/LaminateWood.PNG);
+}
+
+select#woodType option[value="Oak"] {
+    background-image: url(../images/OakWood.PNG);
+}
+
+select#woodType option[value="Pine"] {
+    background-image: url(../images/PineWood.PNG);
+}
+
+select#woodType option[value="Rosewood"] {
+    background-image: url(../images/RoseWood.PNG);
+}
+
+select#woodType option[value="Veneer"] {
+    background-image: url(../images/VeneerWood.PNG);
+}

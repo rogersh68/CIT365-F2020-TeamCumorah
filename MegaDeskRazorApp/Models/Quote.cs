@@ -12,25 +12,32 @@ namespace MegaDeskRazorApp.Models
         public int ID { get; set; }
 
         [Display(Name = "Customer Name")]
+        [Required]
         public string customerName { get; set; }
 
         [Display(Name = "Quote Date")]
         [DataType(DataType.Date)]
+
         public DateTime quoteDate { get; set; }
 
         [Display(Name = "Rush Days")]
+        [Range(0, 14)]
         public int rushDays { get; set; }
 
         [Display(Name = "Desk Width")]
+        [Range(24, 96)]
         public int deskWidth { get; set; }
 
         [Display(Name = "Desk Depth")]
+        [Range(12, 44)]
         public int deskDepth { get; set; }
 
         [Display(Name = "Number of Drawers")]
+        [Range(0, 7)]
         public int deskDrawer { get; set; }
 
         [Display (Name = "Desk Material")]
+        [Required]
         public DesktopMaterial desktopMaterial { get; set; }
 
         [Display(Name = "Total Quote")]
