@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SacramentMeetingPlanner.Data;
 
 namespace SacramentMeetingPlanner
 {
@@ -25,7 +26,10 @@ namespace SacramentMeetingPlanner
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-}
+
+            services.AddDbContext<SacramentMeetingPlannerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SacramentMeetingPlannerContext")));
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
