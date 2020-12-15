@@ -11,14 +11,16 @@ namespace SacramentMeetingPlanner_Sunday.Pages.MeetingPlanners
 {
     public class DetailsModel : PageModel
     {
-        private readonly SacramentMeetingPlanner_Sunday.Models.SacramentMeetingPlanner_SundayContext _context;
+        private readonly SacramentMeetingPlanner_SundayContext _context;
 
-        public DetailsModel(SacramentMeetingPlanner_Sunday.Models.SacramentMeetingPlanner_SundayContext context)
+        public DetailsModel(SacramentMeetingPlanner_SundayContext context)
         {
             _context = context;
         }
 
         public MeetingPlanner MeetingPlanner { get; set; }
+        public IEnumerable<MeetingSpeaker> Speakers { get; set; }
+        public int MeetingPlannerID { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,7 +29,9 @@ namespace SacramentMeetingPlanner_Sunday.Pages.MeetingPlanners
                 return NotFound();
             }
 
+            MeetingPlannerID = id.Value;
             MeetingPlanner = await _context.MeetingPlanner.FirstOrDefaultAsync(m => m.MeetingPlannerID == id);
+            Speakers = _context.MeetingSpeaker.Where(x => x.MeetingPlannerID == MeetingPlannerID);
 
             if (MeetingPlanner == null)
             {
