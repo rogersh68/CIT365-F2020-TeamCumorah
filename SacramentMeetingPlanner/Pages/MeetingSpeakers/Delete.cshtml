@@ -1,0 +1,40 @@
+﻿@page
+@model SacramentMeetingPlanner.Pages.MeetingSpeakers.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MeetingSpeaker</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingSpeaker.MeetingSpeakerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingSpeaker.MeetingSpeakerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingSpeaker.MeetingSpeakerTopic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingSpeaker.MeetingSpeakerTopic)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingSpeaker.MeetingPlanID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingSpeaker.MeetingPlanID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="MeetingSpeaker.MeetingSpeakerID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
