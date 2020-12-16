@@ -129,9 +129,9 @@
                     @speaker.MeetingSpeakerTopic
                 </td>
                 <td>
-                    <a asp-page="../MeetingSpeakers/Edit" asp-route-id="@speaker.MeetingSpeakerID" asp-route-MeetingPlanID="@Model.MeetingPlanID">Edit</a> |
-                    <a asp-page="../MeetingSpeakers/Details" asp-route-id="@speaker.MeetingSpeakerID">Details</a> |
-                    <a asp-page="../MeetingSpeakers/Delete" asp-route-id="@speaker.MeetingSpeakerID">Delete</a>
+                    <a asp-page="../MeetingSpeakers/Edit" class="btn btn-info" style="margin-right: 5px" asp-route-id="@speaker.MeetingSpeakerID" asp-route-MeetingPlanID="@Model.MeetingPlanID">Edit</a>
+                    <a asp-page="../MeetingSpeakers/Details" class="btn btn-info" style="margin-right: 5px" asp-route-id="@speaker.MeetingSpeakerID">Details</a>
+                    <a asp-page="../MeetingSpeakers/Delete" class="btn btn-danger" asp-route-id="@speaker.MeetingSpeakerID">Delete</a>
                 </td>
             </tr>
         }

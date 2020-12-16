@@ -27,7 +27,7 @@ namespace SacramentMeetingPlanner.Pages.MeetingPlans
         [BindProperty(SupportsGet = true)]
         public string SearchByConductingLeader { get; set; }
 
-        public async Task OnGetAsync(int? id)
+        public async Task OnGetAsync(int? id, string SortMeetingPlan)
         {
             SortByConductingLeader = String.IsNullOrEmpty(SortMeetingPlan) ? "sort_leader_desc" : "";
 
