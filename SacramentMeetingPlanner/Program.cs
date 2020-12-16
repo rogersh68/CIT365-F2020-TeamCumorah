@@ -6,6 +6,8 @@ using SacramentMeetingPlanner.Models;
 using SacramentMeetingPlanner.Data;
 using Microsoft.Extensions.DependencyInjection;
 
+
+
 namespace SacramentMeetingPlanner
 {
     public class Program
@@ -39,5 +41,8 @@ namespace SacramentMeetingPlanner
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-    }
+
+       
+
+}
 }

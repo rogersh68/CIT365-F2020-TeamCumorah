@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SacramentMeetingPlanner.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace SacramentMeetingPlanner
 {
@@ -29,6 +31,8 @@ namespace SacramentMeetingPlanner
 
             services.AddDbContext<SacramentMeetingPlannerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SacramentMeetingPlannerContext")));
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,5 +61,7 @@ namespace SacramentMeetingPlanner
                 endpoints.MapRazorPages();
             });
         }
-    }
+
+     
+}
 }

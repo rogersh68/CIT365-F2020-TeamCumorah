@@ -2,39 +2,41 @@
 @model SacramentMeetingPlanner.Pages.MeetingPlans.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Programs";
 }
 
-<h1>Index</h1>
+<h1>Programs</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success" >Create New</a>
 </p>
+
+
 <table class="table">
-    <thead>
+    <thead class="bg-primary">
         <tr>
-            <th>
+            <th class="text-light">
                 @Html.DisplayNameFor(model => model.MeetingPlan[0].MeetingDate)
             </th>
-            <th>
+            <th class="text-light">
                 @Html.DisplayNameFor(model => model.MeetingPlan[0].ConductingLeader)
             </th>
-            <th>
+            <th class="text-light">
                 Opening Hymn
             </th>
-            <th>
+            <th class="text-light">
                 @Html.DisplayNameFor(model => model.MeetingPlan[0].OpeningPrayer)
             </th>
-            <th>
+            <th class="text-light">
                 Sacrament Hymn
             </th>
-            <th>
+            <th class="text-light">
                 Intermediate Hymn
             </th>
-            <th>
+            <th class="text-light">
                 Closing Hymn
             </th>
-            <th>
+            <th class="text-light">
                 @Html.DisplayNameFor(model => model.MeetingPlan[0].ClosingPrayer)
             </th>
             <th></th>
@@ -74,10 +76,10 @@
                     @Html.DisplayFor(modelItem => item.ClosingPrayer)
                 </td>
                 <td>
-                    <a asp-page="./Index" asp-route-id="@item.MeetingPlanID">Speakers</a> |
-                    <a asp-page="./Edit" asp-route-id="@item.MeetingPlanID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.MeetingPlanID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.MeetingPlanID">Delete</a>
+                    <a asp-page="./Index" class="btn btn-info" style="margin-bottom: 5px" asp-route-id="@item.MeetingPlanID">Speakers</a> <br />
+                    <a asp-page="./Edit" class="btn btn-info" style="margin-bottom: 5px" asp-route-id="@item.MeetingPlanID">Edit</a> <br />
+                    <a asp-page="./Details" class="btn btn-info" style="margin-bottom: 5px" asp-route-id="@item.MeetingPlanID">Details</a> <br />
+                    <a asp-page="./Delete" class="btn btn-danger" asp-route-id="@item.MeetingPlanID">Delete</a>
                 </td>
             </tr>
         }
