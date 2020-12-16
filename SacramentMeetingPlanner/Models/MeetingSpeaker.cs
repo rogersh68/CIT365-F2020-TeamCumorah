@@ -7,12 +7,12 @@ namespace SacramentMeetingPlanner.Models
         public int MeetingSpeakerID { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 3)]
         [Display(Name = "Meeting Speaker Name")]
         public string MeetingSpeakerName { get; set; }
 
         [Required]
-        [StringLength(80)]
+        [StringLength(80, MinimumLength = 3)]
         [Display(Name = "Meeting Speaker Topic")]
         public string MeetingSpeakerTopic { get; set; }
 
