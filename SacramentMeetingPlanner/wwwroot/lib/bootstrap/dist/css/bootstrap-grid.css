@@ -10584,3 +10584,12 @@ a.text-dark:focus, a.text-dark:hover {
     .modal .close:not(:disabled):not(.disabled):focus, .modal .close:not(:disabled):not(.disabled):hover, .toast .close:not(:disabled):not(.disabled):focus, .toast .close:not(:disabled):not(.disabled):hover {
         color: #000
     }
+.carousel .carousel-item {
+    height: 500px;
+}
+
+.carousel-item img {
+    min-height: 400px;
+    margin: auto;
+    max-height: 400px;
+}
