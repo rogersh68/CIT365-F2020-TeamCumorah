@@ -21,10 +21,46 @@ namespace SacramentMeetingPlanner.Pages.MeetingPlans
         public IList<MeetingPlan> MeetingPlan { get;set; }
         public IEnumerable<MeetingSpeaker> MeetingSpeakers { get; set; }
         public int MeetingPlanID { get; set; }
+        public string SortByConductingLeader { get; set; }
+        public string SortByMeetingDate { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchByConductingLeader { get; set; }
 
         public async Task OnGetAsync(int? id)
         {
-            MeetingPlan = await _context.MeetingPlan.ToListAsync();
+            SortByConductingLeader = String.IsNullOrEmpty(SortMeetingPlan) ? "sort_leader_desc" : "";
+
+            SortByMeetingDate = SortMeetingPlan == "MeetingDate" ? "sort_meeting_date_desc" : "MeetingDate";
+
+            var meetingPlans = from m in _context.MeetingPlan
+                               select m;
+
+            if (!string.IsNullOrEmpty(SearchByConductingLeader))
+            {
+                meetingPlans = meetingPlans.Where(s => s.ConductingLeader.Contains(SearchByConductingLeader));
+            }
+
+            switch (SortMeetingPlan)
+            {
+                case "sort_leader_desc":
+                    meetingPlans = meetingPlans.OrderByDescending(s => s.ConductingLeader);
+                    break;
+
+                case "MeetingDate":
+                    meetingPlans = meetingPlans.OrderBy(s => s.MeetingDate);
+                    break;
+
+                case "sort_meeting_date_desc":
+                    meetingPlans = meetingPlans.OrderByDescending(s => s.MeetingDate);
+                    break;
+
+                default:
+                    meetingPlans = meetingPlans.OrderBy(s => s.ConductingLeader);
+                    break;
+            }
+
+            MeetingPlan = await meetingPlans.ToListAsync();
 
             if (id != null)
             {

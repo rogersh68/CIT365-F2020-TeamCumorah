@@ -11,15 +11,36 @@
     <a asp-page="Create" class="btn btn-success" >Create New</a>
 </p>
 
+<form>
+    <div class="form-row align-items-center">
+        <div class="col-auto">
+            <label class="sr-only" for="ConductingLeader">Conducting Leader</label>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Conducting Leader</div>
+                </div>
+                <input type="text" class="form-control" id="ConductingLeader" placeholder="Conducting Leader" asp-for="SearchByConductingLeader" />
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Filter</button> |
+            <a asp-page="./Index">Back to full List</a>
+        </div>
+    </div>
+</form>
 
 <table class="table">
     <thead class="bg-primary">
         <tr>
-            <th class="text-light">
-                @Html.DisplayNameFor(model => model.MeetingPlan[0].MeetingDate)
+            <th>
+                <a asp-page="./Index" asp-route-SortMeetingPlan="@Model.SortByMeetingDate">
+                    @Html.DisplayNameFor(model => model.MeetingPlan[0].MeetingDate)
+                </a>
             </th>
-            <th class="text-light">
-                @Html.DisplayNameFor(model => model.MeetingPlan[0].ConductingLeader)
+            <th>
+                <a asp-page="./Index" asp-route-SortMeetingPlan="@Model.SortByConductingLeader">
+                    @Html.DisplayNameFor(model => model.MeetingPlan[0].ConductingLeader)
+                </a>
             </th>
             <th class="text-light">
                 Opening Hymn
