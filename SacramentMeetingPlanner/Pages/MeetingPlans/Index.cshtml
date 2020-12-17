@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2">Filter</button> |
+            <button type="submit" class="btn  btn-success mb-2">Filter</button> |
             <a asp-page="./Index">Back to full List</a>
         </div>
     </div>
@@ -110,13 +110,13 @@
 @if (Model.MeetingSpeakers != null)
 {
     <h3>Meeting Speakers</h3>
-    <a asp-page="../MeetingSpeakers/Create" class="btn btn-primary" asp-route-MeetingPlanID="@Model.MeetingPlanID">Add New Speaker</a>
+    <a asp-page="../MeetingSpeakers/Create" class="btn  btn-success" asp-route-MeetingPlanID="@Model.MeetingPlanID">Add New Speaker</a>
     <br />
     <br />
     <table class="table">
-        <tr>
-            <th>Speaker Name</th>
-            <th>Speaker Topic</th>
+        <tr class="bg-primary">
+            <th class="text-light">Speaker Name</th>
+            <th class="text-light">Speaker Topic</th>
             <th></th>
         </tr>
         @foreach (var speaker in Model.MeetingSpeakers)
